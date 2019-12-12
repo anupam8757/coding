@@ -1,0 +1,44 @@
+// program to implement Counting sort
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,a[100],maxm,i,j,b[100];
+    cout << "Hello world!" << endl;
+    cout<<"enter size of array than enter array\n";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+    cin>>a[i];
+    b[i]=0;
+    }
+    maxm=a[0];
+    for(i=1;i<n;i++)
+    {
+        if(a[i]>maxm)
+            maxm=a[i];
+    }
+   // int freqency[maxm+1];
+    int c[maxm+1];
+    for(i=0;i<=maxm+1;i++)
+        c[i]=0;
+
+    for(i=0;i<n;i++)
+    {
+     c[a[i]]=c[a[i]]+1;
+    }
+    // modified freqency  array;
+    for(i=1;i<maxm+1;i++)
+    c[i]=c[i]+c[i-1];
+
+   for(j=n-1;j>=0;j--)//logic of sorting
+   {
+      b[--c[a[j]]]=a[j];
+   }
+    cout<<"after sorting\n";
+    for(i=0;i<n;i++)
+        cout<<b[i]<<" ";
+    return 0;
+}
