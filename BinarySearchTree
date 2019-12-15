@@ -1,0 +1,49 @@
+// implementation of BinarySearchTree
+#include <iostream>
+
+using namespace std;
+struct BstNode{
+int data;
+BstNode* left;
+BstNode* right;
+};
+BstNode* getnewnode(int data)
+{
+    BstNode* newnode= new BstNode();
+    newnode->data=data;
+    newnode->left=NULL;
+    newnode->right=NULL;
+    return(newnode);
+}
+BstNode* inserte(BstNode* root,int data)
+{
+    if(root==NULL)
+        root=getnewnode(data);
+    else if(data<=root->data)
+        root->left=inserte(root->left,data);
+    else
+        root->right=inserte(root->right,data);
+    return root;
+}
+void preorder(BstNode* root)
+{
+    if(root)
+    {
+        printf("%d ",root->data);
+        preorder(root->left);
+        preorder(root->right);
+    }
+}
+int main()
+{
+    BstNode* root= new BstNode();
+    root=NULL;
+    root=inserte(root,34);
+    root=inserte(root,54);
+    root=inserte(root,44);
+    root=inserte(root,64);
+    cout << "Hello world!" << endl;
+    cout<<"elements in tree\n"<<endl;
+    preorder(root);
+    return 0;
+}
