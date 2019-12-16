@@ -1,0 +1,30 @@
+//impementation of linear search 
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+    int a[50],i,n,num;
+    printf("enter element to saerch\n");
+    scanf("%d",&num);
+    printf("enter size of array than array\n");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+     printf("elements are...\n");
+     for(i=0;i<n;i++)
+    printf(" %d",a[i]);
+     for(i=0;i<n;i++)
+     {
+         if(a[i]==num)
+         {
+             printf("elements is found at pos %d\n",i);
+
+         }
+     }
+
+
+    printf("Hello world!\n");
+    return 0;
+}
