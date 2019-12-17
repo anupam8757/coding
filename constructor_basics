@@ -1,0 +1,26 @@
+//program demonstrating constructor
+#include <iostream>
+
+using namespace std;
+class A{
+private:int a;
+    public:
+    A(){
+    cout<<"constructor A called"<<endl;}
+    ~A(){
+    cout<<"destructor of class A"<<endl;}
+};
+class B:public A{
+   public:
+    B(){
+    cout<<"constructor B called"<<endl;}
+    ~B(){
+    cout<<"destructor of class B"<<endl;}
+};
+int main()
+{
+    B obj;
+
+    cout << "Hello world!" << endl;
+    return 0;
+}
