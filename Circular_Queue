@@ -1,0 +1,85 @@
+//implementation of circular quene
+#include <stdio.h>
+#include <stdlib.h>
+int a[8],data,item,siz;
+int front=-1,rear=-1;
+void que()
+{
+    printf(" enetr data to push\n");
+                   scanf("%d",&data);
+    if((front==0&&rear==siz-1)||(rear==front-1))
+    {
+        printf("que is full");
+        exit(0);
+    }
+   else if(front==-1&&rear==-1)
+
+    {
+        front=0;
+        rear=rear+1;
+        a[rear]=data;
+    }
+    else if(rear==siz-1)
+       rear=0;
+       else
+        rear++;
+       a[rear]=data;
+    }
+int dq()
+{
+    if(front==-1)
+    {
+        printf("q is empty");
+        exit(20);
+    }
+
+
+else
+{
+
+         item=a[front];
+    if(front==rear)
+        front=-1,rear=-1;
+    else if(front==siz-1)
+        front=0;
+    else
+        front++;
+    return(item);
+}
+void dishplay()
+{
+    int i;
+    printf("elements are....\n");
+    for(i=front;i<=rear;i++)
+        printf("%d  ",a[i]);
+        }
+
+        int main()
+
+
+      {
+     int ch ;
+     printf("enter size of aaryb\n than array\n");
+     scanf("%d",&siz);
+
+    printf("Hello world!\n");
+    while(1)
+    {
+        printf("enter 1 to push\n2 to pop\n3 to exit");
+        scanf("%d", &ch);
+        switch(ch)
+        {
+        case 1:
+                que();
+                dishplay();
+                  break;
+         case 2: item=dq();
+                  printf("%dis deleted",item);
+                  dishplay();
+                   break;
+         case 3: printf(" you will be out\n");
+                  exit(0);
+        }
+    }
+return 0;
+}
