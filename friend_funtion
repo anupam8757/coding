@@ -1,0 +1,32 @@
+//implement of friend funtion
+#include <iostream>
+
+using namespace std;
+class comp{
+private:
+    int a,b;
+public:
+    void setdata(int x,int y)
+    {
+        a=x;b=y;
+    }
+    void dishplay()
+    {
+        cout<<"a &b"<<a<<b;
+    }
+    friend void fun(comp);
+};
+void fun(comp c)
+{
+    cout<<"you are in friend function"<<endl;
+    cout<<"sum="<<c.a+c.b;
+}
+int main()
+{
+    comp c1;
+    c1.setdata(7,8);
+    c1.dishplay();
+    fun(c1);
+    cout << "Hello world!" << endl;
+    return 0;
+}
