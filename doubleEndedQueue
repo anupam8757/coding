@@ -1,0 +1,126 @@
+//implementation of double ended quene
+#include <stdio.h>
+#include <stdlib.h>
+int a[8],data,item,siz;
+int front=-1,rear=-1;
+void rque()
+{
+    printf(" enetr data to push\n");
+                   scanf("%d",&data);
+    if(rear==siz-1)
+    {
+        printf("que is full");
+        exit(0);
+
+    }
+   else if(front==-1&&rear==-1)
+
+    {
+        front=0;
+        rear=rear+1;
+        a[rear]=data;
+    }
+    else
+    {
+    rear++;
+    a[rear]=data;
+    }
+
+}
+void frontq()
+{
+    int temp,i;
+    printf("enter data to push in front\n");
+    scanf("%d",&data);
+    if(rear==siz-1)
+    {
+        printf(" is full");
+        exit(5);
+    }
+    else if(front==-1&&rear==-1)
+    {
+        front=0;
+        rear=0;
+        a[front]=data;
+    }
+    else
+    {
+        rear=rear+1;
+        for(i=front;i<rear;i++)
+          a[i+1]=a[i];
+              a[front]=data;
+    }
+
+}
+
+int reardq()
+{
+    if(rear==-1)
+    {
+        printf("cant del q is empty\n");
+        exit(1);
+    }
+    {
+        item=a[rear];
+        rear=rear-1;
+    }
+    return(item);
+}
+int fdq()
+{
+    if(front==-1&&rear==-1)
+    {
+        printf("q is empty");
+        exit(20);
+    }
+
+
+else
+    item=a[front];
+    front=front+1;
+    return(item);
+}
+void dishplay()
+{
+    int i;
+    printf("elements are....");
+    for(i=front;i<=rear;i++)
+        printf("%d  ",a[i]);
+
+}
+int main()
+{
+     int ch ;
+     printf("enter size of aaryb\n than array\n");
+     scanf("%d",&siz);
+
+    printf("Hello world!\n");
+    while(1)
+    {
+        printf("enter 1 to rear q 2 to front dq3 to exit ener 4 to front q 5 rear delete");
+        scanf("%d", &ch);
+        switch(ch)
+        {
+        case 1:
+                rque();
+                dishplay();
+                  break;
+         case 2: item=fdq();
+                  printf("%dis deleted",item);
+                  dishplay();
+                   break;
+         case 3: printf(" you will be out\n");
+                  exit(0);
+         case 4: printf("data will be enter from front side\n");
+                  frontq();
+                   dishplay();
+                   break;
+        case 5: item =reardq();
+                 printf("%dis deleted",item);
+                  dishplay();
+                   break;
+
+        }
+    }
+    return 0;
+}
