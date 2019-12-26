@@ -1,0 +1,75 @@
+//implementation of stack
+#include <stdio.h>
+#include <stdlib.h>
+int a[5],data,item,siz;
+int top=-1;
+void push()
+{
+    printf(" enetr data to push\n");
+                   scanf("%d",&data);
+    if(top==siz-1)
+    {
+        printf("stack is full");
+        exit(0);
+
+    }
+   if(top==-1)
+    {
+        top=top+1;
+        a[top]=data;
+
+    }
+    else
+    {
+    top++;
+    a[top]=data;
+    }
+
+}
+int pop()
+{
+    if(top==-1)
+{
+    printf("stack is empty\n");
+        exit(0);
+}
+else
+    item=a[top];
+    top=top-1;
+    return(item);
+}
+void dishplay()
+{
+    int i;
+    printf("elements are....\n");
+    for(i=0;i<=top;i++)
+        printf("%d  ",a[i]);
+
+}
+int main()
+{
+     int ch ;
+     printf("enter size of aaryb\n than array\n");
+     scanf("%d",&siz);
+
+    printf("Hello world!\n");
+    while(1)
+    {
+        printf("enter 1 to push\n2 to pop\n3 to exit");
+        scanf("%d", &ch);
+        switch(ch)
+        {
+        case 1:
+                push();
+                dishplay();
+                  break;
+         case 2: item=pop();
+                  printf("%dis deleted",item);
+                  dishplay();
+                   break;
+         case 3: printf(" you will be out\n");
+                  exit(0);
+        }
+    }
+    return 0;
+}
