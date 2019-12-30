@@ -1,0 +1,43 @@
+//Check for Prime Number
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    int n;
+    cin>>n;
+    for(int i=n;i>0;i--)
+    {
+        int num;
+        bool sum=true;
+        cin>>num;
+        if(num==2)
+        cout<<"Prime"<<endl;
+        else if (num==1) {
+        cout<<"Not prime"<<endl;
+        }
+        else
+        {
+        for(int i=2;i<num;i++)
+        {
+            if(num%i==0)
+             {
+                sum=false;
+                break;
+             }
+        }
+         if(sum)
+        cout<<"Prime"<<endl;
+        else
+        cout<<"Not prime"<<endl;
+        
+    } 
+       
+    }
+    return 0;
+}
