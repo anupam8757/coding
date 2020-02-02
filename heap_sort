@@ -1,0 +1,68 @@
+//implementation  of heap
+
+#include <iostream>
+
+using namespace std;
+
+void maxheapify(int a[],int n,int k)
+{
+    int l=2*k+1;
+    int r=2*k+2;
+    int largest=0,temp=0;
+    if(l<=n && a[l]>a[k])
+        largest=l;
+    else
+        largest=k;
+    if(r<=n && a[r]>a[largest])
+        largest=r;
+    if(largest!=k)
+    {
+      temp=a[k];
+      a[k]=a[largest];
+      a[largest]=temp;
+    maxheapify(a,n,largest);
+    }
+
+}
+void buildmaxheap(int a[],int n)
+{
+
+    for(int i=n/2-1;i>=0;i--)
+    {
+        maxheapify(a,n,i);
+    }
+     cout<<"the array  is heap"<<endl;
+    for(int i=0;i<n;i++)//print array
+        cout<<a[i]<<" ";
+   int temp=0;
+    for(int i=n-1;i>=0;i--)
+    {
+      temp=a[0];
+      a[0]=a[i];
+      a[i]=temp;
+      maxheapify(a,i,0);
+    }
+     cout<<"the array  with sorting"<<endl;//print array
+    for(int i=0;i<n;i++)
+        cout<<a[i]<<" ";
+}
+int main()
+{
+
+
+    int a[100],siz;
+    cout << "Hello world!" << endl;
+    cout<<"enter size of array/n than enter array/n"<<endl;
+    cin>>siz;
+    for(int i=0;i<siz;i++)
+    cin>>a[i];
+    cout<<"the array  without sorting"<<endl;
+
+    for(int i=0;i<siz;i++)
+    cout<<a[i]<<" ";
+
+    buildmaxheap(a,siz);
+
+
+return 0;
+}
