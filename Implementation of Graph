@@ -1,0 +1,41 @@
+#include <iostream>
+#include <list>
+#include<bits/stdc++.h>
+using namespace std;
+class Graph
+{
+public : int v;
+         list<int> *l; //  array of list
+        Graph(int v)
+        {
+        this->v=v;
+        l=new list<int>[v];
+        }
+
+        void addEdge(int x,int y) // insert eleemnt in list
+        {
+            l[x].push_back(y);
+            l[y].push_back(x);
+        }
+        void printlist()
+        {
+            for(int i=0;i<v;i++)
+            {
+                cout<<"vertex "<<i<<"->";
+                for(int x:l[i])
+                cout<<x<<" ";
+               cout<<endl;
+            }
+            cout<<endl;
+        }
+};
+int main() {
+    Graph g(4);
+    g.addEdge(0,1);
+    g.addEdge(2,0);
+    g.addEdge(2,3);
+    g.addEdge(1,2);
+    g.printlist();
+    cout<<"Hello World!";
+    return 0;
+}
