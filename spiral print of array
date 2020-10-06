@@ -1,0 +1,61 @@
+/*
+Given a matrix mat[][] of size M*N. Traverse and print the matrix in spiral form.
+
+Input:
+The first line of the input contains a single integer T, denoting the number of test cases. Then T test cases follow. Each testcase has 2 lines. First line contains M and N respectively separated by a space. Second line contains M*N values separated by spaces.
+
+Output:
+Elements when travelled in Spiral form, will be displayed in a single line.*/
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int m,n;
+	    cin>>m>>n;
+	    int arr[m+1][n+1];
+	    for(int i=0;i<m;i++)
+	    {
+	        for(int j=0;j<n;j++)
+	        cin>>arr[i][j];
+	        
+	    }
+	    int k=0,i,l=0;//k is starting row index l is starting column index
+	    while(k<m && l<n)
+	    {
+	        //printing 1st row
+	        for(i=k;i<n;i++)
+	        {
+	            cout<<arr[k][i]<<" ";
+	        }
+	        k++;
+	        // print last column
+	        for(i=k;i<m;i++)
+	        {
+	            cout<<arr[i][n-1]<<" ";
+	        }
+	        n--;
+	        //printing last row;
+	        if(k<m)
+	        {
+	           for(i=n-1;i>=l;i--)
+	           cout<<arr[m-1][i]<<" ";
+	            m--;
+	        }
+	        //printing 1st col
+	        if(l<n)
+	        {
+	            for(i=m-1;i>=k;i--)
+	            cout<<arr[i][l]<<" ";
+	            l++;
+	        }
+	       
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
